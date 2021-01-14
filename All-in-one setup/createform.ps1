@@ -304,7 +304,7 @@ $tmpInput = @'
 {"description":null,"translateDescription":false,"inputFieldType":1,"key":"selectedUser","type":0,"options":1}
 '@ 
 $dataSourceGuid_3 = [PSCustomObject]@{} 
-Invoke-HelloIDDatasource -DatasourceName "AD-user-generate-table-groupmemberships" -DatasourceType "4" -DatasourceInput $tmpInput -DatasourcePsScript -$tmpPsScript -DatasourceModel $tmpModel -returnObject ([Ref]$dataSourceGuid_3) 
+Invoke-HelloIDDatasource -DatasourceName "AD-user-generate-table-groupmemberships" -DatasourceType "4" -DatasourceInput $tmpInput -DatasourcePsScript $tmpPsScript -DatasourceModel $tmpModel -returnObject ([Ref]$dataSourceGuid_3) 
 <# End: DataSource "AD-user-generate-table-groupmemberships" #>
 
 <# Begin: DataSource "AD-user-generate-table-wildcard" #>
@@ -349,7 +349,7 @@ $tmpInput = @'
 {"description":null,"translateDescription":false,"inputFieldType":1,"key":"searchUser","type":0,"options":1}
 '@ 
 $dataSourceGuid_1 = [PSCustomObject]@{} 
-Invoke-HelloIDDatasource -DatasourceName "AD-user-generate-table-wildcard" -DatasourceType "4" -DatasourceInput $tmpInput -DatasourcePsScript -$tmpPsScript -DatasourceModel $tmpModel -returnObject ([Ref]$dataSourceGuid_1) 
+Invoke-HelloIDDatasource -DatasourceName "AD-user-generate-table-wildcard" -DatasourceType "4" -DatasourceInput $tmpInput -DatasourcePsScript $tmpPsScript -DatasourceModel $tmpModel -returnObject ([Ref]$dataSourceGuid_1) 
 <# End: DataSource "AD-user-generate-table-wildcard" #>
 
 <# Begin: DataSource "AD-user-generate-table-attributes-basic" #>
@@ -379,7 +379,7 @@ $tmpInput = @'
 {"description":null,"translateDescription":false,"inputFieldType":1,"key":"selectedUser","type":0,"options":1}
 '@ 
 $dataSourceGuid_2 = [PSCustomObject]@{} 
-Invoke-HelloIDDatasource -DatasourceName "AD-user-generate-table-attributes-basic" -DatasourceType "4" -DatasourceInput $tmpInput -DatasourcePsScript -$tmpPsScript -DatasourceModel $tmpModel -returnObject ([Ref]$dataSourceGuid_2) 
+Invoke-HelloIDDatasource -DatasourceName "AD-user-generate-table-attributes-basic" -DatasourceType "4" -DatasourceInput $tmpInput -DatasourcePsScript $tmpPsScript -DatasourceModel $tmpModel -returnObject ([Ref]$dataSourceGuid_2) 
 <# End: DataSource "AD-user-generate-table-attributes-basic" #>
 
 <# Begin: DataSource "AD-user-generate-table-groupmemberships" #>
@@ -420,7 +420,7 @@ $tmpInput = @'
 {"description":null,"translateDescription":false,"inputFieldType":1,"key":"selectedUser","type":0,"options":1}
 '@ 
 $dataSourceGuid_4 = [PSCustomObject]@{} 
-Invoke-HelloIDDatasource -DatasourceName "AD-user-generate-table-groupmemberships" -DatasourceType "4" -DatasourceInput $tmpInput -DatasourcePsScript -$tmpPsScript -DatasourceModel $tmpModel -returnObject ([Ref]$dataSourceGuid_4) 
+Invoke-HelloIDDatasource -DatasourceName "AD-user-generate-table-groupmemberships" -DatasourceType "4" -DatasourceInput $tmpInput -DatasourcePsScript $tmpPsScript -DatasourceModel $tmpModel -returnObject ([Ref]$dataSourceGuid_4) 
 <# End: DataSource "AD-user-generate-table-groupmemberships" #>
 
 <# Begin: DataSource "AD-user-generate-table-wildcard" #>
@@ -465,7 +465,7 @@ $tmpInput = @'
 {"description":null,"translateDescription":false,"inputFieldType":1,"key":"searchUser","type":0,"options":1}
 '@ 
 $dataSourceGuid_0 = [PSCustomObject]@{} 
-Invoke-HelloIDDatasource -DatasourceName "AD-user-generate-table-wildcard" -DatasourceType "4" -DatasourceInput $tmpInput -DatasourcePsScript -$tmpPsScript -DatasourceModel $tmpModel -returnObject ([Ref]$dataSourceGuid_0) 
+Invoke-HelloIDDatasource -DatasourceName "AD-user-generate-table-wildcard" -DatasourceType "4" -DatasourceInput $tmpInput -DatasourcePsScript $tmpPsScript -DatasourceModel $tmpModel -returnObject ([Ref]$dataSourceGuid_0) 
 <# End: DataSource "AD-user-generate-table-wildcard" #>
 <# End: HelloID Data sources #>
 
