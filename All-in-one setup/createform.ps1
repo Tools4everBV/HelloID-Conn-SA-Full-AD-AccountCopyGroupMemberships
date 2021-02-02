@@ -282,7 +282,7 @@ try {
         # Write-Information "Finished searching AD user [$userPrincipalName]"
         # Write-Information "Found AD user [$userPrincipalName]"
          
-        $groups = Get-ADPrincipalGroupMembership $adUser | Select-Object name | Sort-Object name
+        $groups = Get-ADPrincipalGroupMembership $adUser | Select-Object name, sid | Sort-Object name
         $groups = $groups | Where-Object {$_.Name -ne "Domain Users"}
         $resultCount = @($groups).Count
          
@@ -291,7 +291,7 @@ try {
         if($resultCount -gt 0) {
             foreach($group in $groups)
             {
-                $returnObject = @{name="$($group.name)";}
+                $returnObject = @{name="$($group.name)"; sid = [string]"$($group.sid)"}
                 Write-Output $returnObject
             }
         }
@@ -301,7 +301,7 @@ try {
 }
 '@ 
 $tmpModel = @'
-[{"key":"name","type":0}]
+[{"key":"name","type":0},{"key":"sid","type":0}]
 '@ 
 $tmpInput = @'
 [{"description":null,"translateDescription":false,"inputFieldType":1,"key":"selectedUser","type":0,"options":1}]
@@ -407,7 +407,7 @@ try {
         # Write-Information "Finished searching AD user [$userPrincipalName]"
         # Write-Information "Found AD user [$userPrincipalName]"
          
-        $groups = Get-ADPrincipalGroupMembership $adUser | Select-Object name | Sort-Object name
+        $groups = Get-ADPrincipalGroupMembership $adUser | Select-Object name, sid | Sort-Object name
         $groups = $groups | Where-Object {$_.Name -ne "Domain Users"}
         $resultCount = @($groups).Count
          
@@ -416,7 +416,7 @@ try {
         if($resultCount -gt 0) {
             foreach($group in $groups)
             {
-                $returnObject = @{name="$($group.name)";}
+                $returnObject = @{name="$($group.name)"; sid = [string]"$($group.sid)"}
                 Write-Output $returnObject
             }
         }
@@ -426,7 +426,7 @@ try {
 }
 '@ 
 $tmpModel = @'
-[{"key":"name","type":0}]
+[{"key":"name","type":0},{"key":"sid","type":0}]
 '@ 
 $tmpInput = @'
 [{"description":null,"translateDescription":false,"inputFieldType":1,"key":"selectedUser","type":0,"options":1}]
@@ -489,7 +489,7 @@ Invoke-HelloIDDatasource -DatasourceName $dataSourceGuid_0_Name -DatasourceType 
 
 <# Begin: Dynamic Form "AD Account - Copy groupmemberships" #>
 $tmpSchema = @"
-[{"label":"Target user account","fields":[{"key":"searchfield","templateOptions":{"label":"Search target user account","placeholder":"Username or email address"},"type":"input","summaryVisibility":"Hide element","requiresTemplateOptions":true},{"key":"gridUsersTarget","templateOptions":{"label":"Select target user account","required":true,"grid":{"columns":[{"headerName":"DisplayName","field":"displayName"},{"headerName":"UserPrincipalName","field":"UserPrincipalName"},{"headerName":"Department","field":"Department"},{"headerName":"Title","field":"Title"},{"headerName":"Description","field":"Description"}],"height":300,"rowSelection":"single"},"dataSourceConfig":{"dataSourceGuid":"$dataSourceGuid_0","input":{"propertyInputs":[{"propertyName":"searchUser","otherFieldValue":{"otherFieldKey":"searchfield"}}]}},"useFilter":false},"type":"grid","summaryVisibility":"Show","requiresTemplateOptions":true}]},{"label":"Source user account","fields":[{"key":"searchfield2","templateOptions":{"label":"Search source user","placeholder":"Username or email address"},"type":"input","summaryVisibility":"Hide element","requiresTemplateOptions":true},{"key":"gridUsersSource","templateOptions":{"label":"Select source user account","required":true,"grid":{"columns":[{"headerName":"DisplayName","field":"displayName"},{"headerName":"UserPrincipalName","field":"UserPrincipalName"},{"headerName":"Department","field":"Department"},{"headerName":"Title","field":"Title"},{"headerName":"Description","field":"Description"}],"height":300,"rowSelection":"single"},"dataSourceConfig":{"dataSourceGuid":"$dataSourceGuid_1","input":{"propertyInputs":[{"propertyName":"searchUser","otherFieldValue":{"otherFieldKey":"searchfield2"}}]}},"useFilter":false},"type":"grid","summaryVisibility":"Show","requiresTemplateOptions":true}]},{"label":"Memberships","fields":[{"key":"gridDetails","templateOptions":{"label":"Basic attributes target user","required":false,"grid":{"columns":[{"headerName":"Name","field":"name"},{"headerName":"Value","field":"value"}],"height":350,"rowSelection":"single"},"dataSourceConfig":{"dataSourceGuid":"$dataSourceGuid_2","input":{"propertyInputs":[{"propertyName":"selectedUser","otherFieldValue":{"otherFieldKey":"gridUsersTarget"}}]}},"useFilter":false},"type":"grid","summaryVisibility":"Hide element","requiresTemplateOptions":true},{"key":"memberships","templateOptions":{"label":"Memberships","required":false,"filterable":true,"useDataSource":true,"dualList":{"options":[{"guid":"75ea2890-88f8-4851-b202-626123054e14","Name":"Apple"},{"guid":"0607270d-83e2-4574-9894-0b70011b663f","Name":"Pear"},{"guid":"1ef6fe01-3095-4614-a6db-7c8cd416ae3b","Name":"Orange"}],"optionKeyProperty":"name","optionDisplayProperty":"name","labelLeft":"Source user","labelRight":"Target user"},"dataSourceConfig":{"dataSourceGuid":"$dataSourceGuid_3","input":{"propertyInputs":[{"propertyName":"selectedUser","otherFieldValue":{"otherFieldKey":"gridUsersSource"}}]}},"destinationDataSourceConfig":{"dataSourceGuid":"$dataSourceGuid_4","input":{"propertyInputs":[{"propertyName":"selectedUser","otherFieldValue":{"otherFieldKey":"gridUsersTarget"}}]}},"useFilter":false},"type":"duallist","summaryVisibility":"Show","requiresTemplateOptions":true}]}]
+[{"label":"Target user account","fields":[{"key":"searchfield","templateOptions":{"label":"Search target user account","placeholder":"Username or email address"},"type":"input","summaryVisibility":"Hide element","requiresTemplateOptions":true},{"key":"gridUsersTarget","templateOptions":{"label":"Select target user account","required":true,"grid":{"columns":[{"headerName":"DisplayName","field":"displayName"},{"headerName":"UserPrincipalName","field":"UserPrincipalName"},{"headerName":"Department","field":"Department"},{"headerName":"Title","field":"Title"},{"headerName":"Description","field":"Description"}],"height":300,"rowSelection":"single"},"dataSourceConfig":{"dataSourceGuid":"$dataSourceGuid_0","input":{"propertyInputs":[{"propertyName":"searchUser","otherFieldValue":{"otherFieldKey":"searchfield"}}]}},"useFilter":false},"type":"grid","summaryVisibility":"Show","requiresTemplateOptions":true}]},{"label":"Source user account","fields":[{"key":"searchfield2","templateOptions":{"label":"Search source user","placeholder":"Username or email address"},"type":"input","summaryVisibility":"Hide element","requiresTemplateOptions":true},{"key":"gridUsersSource","templateOptions":{"label":"Select source user account","required":true,"grid":{"columns":[{"headerName":"DisplayName","field":"displayName"},{"headerName":"UserPrincipalName","field":"UserPrincipalName"},{"headerName":"Department","field":"Department"},{"headerName":"Title","field":"Title"},{"headerName":"Description","field":"Description"}],"height":300,"rowSelection":"single"},"dataSourceConfig":{"dataSourceGuid":"$dataSourceGuid_1","input":{"propertyInputs":[{"propertyName":"searchUser","otherFieldValue":{"otherFieldKey":"searchfield2"}}]}},"useFilter":false},"type":"grid","summaryVisibility":"Show","requiresTemplateOptions":true}]},{"label":"Memberships","fields":[{"key":"gridDetails","templateOptions":{"label":"Basic attributes target user","required":false,"grid":{"columns":[{"headerName":"Name","field":"name"},{"headerName":"Value","field":"value"}],"height":350,"rowSelection":"single"},"dataSourceConfig":{"dataSourceGuid":"$dataSourceGuid_2","input":{"propertyInputs":[{"propertyName":"selectedUser","otherFieldValue":{"otherFieldKey":"gridUsersTarget"}}]}},"useFilter":false},"type":"grid","summaryVisibility":"Hide element","requiresTemplateOptions":true},{"key":"memberships","templateOptions":{"label":"Memberships","required":false,"filterable":true,"useDataSource":true,"dualList":{"options":[{"guid":"75ea2890-88f8-4851-b202-626123054e14","Name":"Apple"},{"guid":"0607270d-83e2-4574-9894-0b70011b663f","Name":"Pear"},{"guid":"1ef6fe01-3095-4614-a6db-7c8cd416ae3b","Name":"Orange"}],"optionKeyProperty":"sid","optionDisplayProperty":"name","labelLeft":"Source user","labelRight":"Target user"},"dataSourceConfig":{"dataSourceGuid":"$dataSourceGuid_3","input":{"propertyInputs":[{"propertyName":"selectedUser","otherFieldValue":{"otherFieldKey":"gridUsersSource"}}]}},"destinationDataSourceConfig":{"dataSourceGuid":"$dataSourceGuid_4","input":{"propertyInputs":[{"propertyName":"selectedUser","otherFieldValue":{"otherFieldKey":"gridUsersTarget"}}]}},"useFilter":false},"type":"duallist","summaryVisibility":"Show","sourceDataSourceIdentifierSuffix":"source-datasource","destinationDataSourceIdentifierSuffix":"destination-datasource","requiresTemplateOptions":true}]}]
 "@ 
 
 $dynamicFormGuid = [PSCustomObject]@{} 
@@ -568,7 +568,7 @@ if($groupsToAdd -ne "[]"){
     try {
         $groupsToAddJson =  $groupsToAdd | ConvertFrom-Json
         
-        Add-ADPrincipalGroupMembership -Identity $adUser -MemberOf $groupsToAddJson.name -Confirm:$false
+        Add-ADPrincipalGroupMembership -Identity $adUser -MemberOf $groupsToAddJson.sid -Confirm:$false
         HID-Write-Status -Message "Finished adding AD user [$userPrincipalName] to AD groups $groupsToAdd" -Event Success
         HID-Write-Summary -Message "Successfully added AD user [$userPrincipalName] to AD groups $groupsToAdd" -Event Success
     } catch {
