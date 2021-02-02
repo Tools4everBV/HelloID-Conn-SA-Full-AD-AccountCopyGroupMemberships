@@ -192,7 +192,7 @@
                                                                                         "Name":  "Orange"
                                                                                     }
                                                                                 ],
-                                                                    "optionKeyProperty":  "name",
+                                                                    "optionKeyProperty":  "sid",
                                                                     "optionDisplayProperty":  "name",
                                                                     "labelLeft":  "Source user",
                                                                     "labelRight":  "Target user"
@@ -227,6 +227,8 @@
                                                },
                            "type":  "duallist",
                            "summaryVisibility":  "Show",
+                           "sourceDataSourceIdentifierSuffix":  "source-datasource",
+                           "destinationDataSourceIdentifierSuffix":  "destination-datasource",
                            "requiresTemplateOptions":  true
                        }
                    ]

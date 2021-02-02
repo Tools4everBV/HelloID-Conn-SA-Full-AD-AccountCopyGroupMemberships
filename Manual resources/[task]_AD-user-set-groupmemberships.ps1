@@ -13,7 +13,7 @@ if($groupsToAdd -ne "[]"){
     try {
         $groupsToAddJson =  $groupsToAdd | ConvertFrom-Json
         
-        Add-ADPrincipalGroupMembership -Identity $adUser -MemberOf $groupsToAddJson.name -Confirm:$false
+        Add-ADPrincipalGroupMembership -Identity $adUser -MemberOf $groupsToAddJson.sid -Confirm:$false
         HID-Write-Status -Message "Finished adding AD user [$userPrincipalName] to AD groups $groupsToAdd" -Event Success
         HID-Write-Summary -Message "Successfully added AD user [$userPrincipalName] to AD groups $groupsToAdd" -Event Success
     } catch {
