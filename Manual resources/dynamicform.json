@@ -10,7 +10,9 @@
                                                },
                            "type":  "input",
                            "summaryVisibility":  "Hide element",
-                           "requiresTemplateOptions":  true
+                           "requiresTemplateOptions":  true,
+                           "requiresKey":  true,
+                           "requiresDataSource":  false
                        },
                        {
                            "key":  "gridUsersTarget",
@@ -60,7 +62,9 @@
                                                },
                            "type":  "grid",
                            "summaryVisibility":  "Show",
-                           "requiresTemplateOptions":  true
+                           "requiresTemplateOptions":  true,
+                           "requiresKey":  true,
+                           "requiresDataSource":  true
                        }
                    ]
     },
@@ -75,7 +79,9 @@
                                                },
                            "type":  "input",
                            "summaryVisibility":  "Hide element",
-                           "requiresTemplateOptions":  true
+                           "requiresTemplateOptions":  true,
+                           "requiresKey":  true,
+                           "requiresDataSource":  false
                        },
                        {
                            "key":  "gridUsersSource",
@@ -125,7 +131,9 @@
                                                },
                            "type":  "grid",
                            "summaryVisibility":  "Show",
-                           "requiresTemplateOptions":  true
+                           "requiresTemplateOptions":  true,
+                           "requiresKey":  true,
+                           "requiresDataSource":  true
                        }
                    ]
     },
@@ -168,7 +176,9 @@
                                                },
                            "type":  "grid",
                            "summaryVisibility":  "Hide element",
-                           "requiresTemplateOptions":  true
+                           "requiresTemplateOptions":  true,
+                           "requiresKey":  true,
+                           "requiresDataSource":  true
                        },
                        {
                            "key":  "memberships",
@@ -229,7 +239,9 @@
                            "summaryVisibility":  "Show",
                            "sourceDataSourceIdentifierSuffix":  "source-datasource",
                            "destinationDataSourceIdentifierSuffix":  "destination-datasource",
-                           "requiresTemplateOptions":  true
+                           "requiresTemplateOptions":  true,
+                           "requiresKey":  true,
+                           "requiresDataSource":  false
                        }
                    ]
     }
