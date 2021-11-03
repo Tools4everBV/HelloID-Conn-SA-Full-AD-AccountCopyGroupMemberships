@@ -5,7 +5,14 @@ This HelloID Service Automation Delegated Form provides AD user account copy gro
  2. Search and select the source AD user account
  3. Show basic AD user account attributes of selected target user
  4. Modify AD groupmemberships of the selected target AD user account based on groupmemberships of the source AD user account
- 
+
+
+## Versioning
+| Version | Description | Date |
+| - | - | - |
+| 1.0.1   | Added version number and updated all-in-one script | 2021/11/03  |
+| 1.0.0   | Initial release | 2020/09/07  |
+
 <!-- TABLE OF CONTENTS -->
 ## Table of Contents
 * [Description](#description)
@@ -13,6 +20,7 @@ This HelloID Service Automation Delegated Form provides AD user account copy gro
   * [Getting started](#getting-started)
 * [Post-setup configuration](#post-setup-configuration)
 * [Manual resources](#manual-resources)
+* [Getting help](#getting-help)
 
 
 ## All-in-one PowerShell setup script
@@ -48,5 +56,8 @@ This Powershell data source runs an Active Directory query to receive the list o
 ### Delegated form task 'AD-user-set-groupmemberships'
 This delegated form task will add new AD groupmemberships for the selected target AD user account based on the modifications in the Delegated Form. This task will only add new groupmemberships and does not remove current groupmemberships.
 
-# HelloID Docs
+## Getting help
+_If you need help, feel free to ask questions on our [forum](https://forum.helloid.com/forum/helloid-connectors/service-automation/498-helloid-sa-active-directory-ad-account-copy-group-memberships)_
+
+## HelloID Docs
 The official HelloID documentation can be found at: https://docs.helloid.com/
